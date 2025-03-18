@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+[data-theme="dark-theme"] {
+	--background-color: #140c13;
+	--aside-bar-background-color: #242324;
+	--aside-bar-content-color: #424042;
+	--aside-bar-icon-color: rgb(255, 255, 255, 0.5);
+	--aside-bar-icon-active-color: white;
+	--aside-bar-titles-letter-color: #fdcee5;
+	--aside-bar-select-letter-color: rgb(197, 195, 195);
+	--aside-bar-select-background-color: #807f7f;
+}
+
+[data-theme="light-theme"] {
+	--background-color: white;
+	--aside-bar-background-color: #d4d9df;
+	--aside-bar-content-color: #cdced1;
+	--aside-bar-icon-color: #2082df;
+	--aside-bar-icon-active-color: black;
+	--aside-bar-titles-letter-color: #010609;
+	--aside-bar-select-letter-color: #010609;
+	--aside-bar-select-background-color: #fcfbff;
+}
+
+body {
+	background-color: white;
+	height: 100vh;
+	overflow: hidden;
+}
+
+button {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+canvas {
+	background-color: red;
+}

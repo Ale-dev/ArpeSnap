@@ -1,0 +1,16 @@
+select {
+	background-color: var(--aside-bar-select-background-color);
+	border: none;
+	width: 100%;
+	color: var(--aside-bar-select-letter-color);
+	font-weight: 700;
+	box-shadow: 0 1px 3px -2px #9098a9;
+	transition: all 150ms ease;
+	padding: 5px;
+}
+
+.theme-picker {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}

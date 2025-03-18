@@ -1,0 +1,31 @@
+<aside class="settings-video">
+	<h2 class="setting-video-title">Video settings</h2>
+	@if (videoInfo.length > 0) {
+	<form action="" [formGroup]="settingsVideoForm" (ngSubmit)="downloadVideo()">
+		<div>
+			<h3>Video name:</h3>
+			<input type="text" formControlName="videoName" />
+		</div>
+		<div>
+			<h3>Video duration:</h3>
+			<input type="text" formControlName="videoDuration" />
+		</div>
+		<div>
+			<label for="fileThumbnail">
+				<h3>Image:</h3>
+				<img [src]="urlImage" alt="image" />
+			</label>
+
+			<input
+				id="fileThumbnail"
+				type="file"
+				(change)="changeImage($event)"
+				style="display: none"
+			/>
+		</div>
+		<div class="download-video">
+			<button id="downloadVideo">download video</button>
+		</div>
+	</form>
+	}
+</aside>

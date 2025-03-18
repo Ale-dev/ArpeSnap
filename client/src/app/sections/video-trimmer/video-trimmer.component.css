@@ -1,0 +1,17 @@
+main {
+	padding: 30px;
+	height: 100%;
+}
+
+figure {
+	border: thin #c0c0c0 solid;
+	display: flex;
+	flex-flow: column;
+	padding: 5px;
+	height: 500px;
+	margin: auto;
+}
+
+video {
+	height: 100%;
+}
