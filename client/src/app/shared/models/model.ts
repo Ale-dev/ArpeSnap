@@ -1,8 +1,8 @@
 export interface VideoItems {
+  videoFile: File;
   videoCover: File;
   videoDuration: number;
   uploadedAt: string;
-  file: File;
 }
 
 export interface SettingApp {

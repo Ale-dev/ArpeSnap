@@ -1,11 +1,11 @@
 <form [formGroup]="form">
-	<div class="theme-picker">
-		<header>
-			<h3>Choose theme</h3>
-		</header>
-		<select formControlName="theme" value="dark-mode">
-			<option value="dark-theme">dark</option>
-			<option value="light-theme">light</option>
-		</select>
-	</div>
+  <div class="theme-container">
+    <header class="theme-container-header">
+      <h3>Choose theme</h3>
+    </header>
+    <select formControlName="theme" value="dark-mode">
+      <option value="dark-theme">dark</option>
+      <option value="light-theme">light</option>
+    </select>
+  </div>
 </form>

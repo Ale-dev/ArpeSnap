@@ -38,6 +38,7 @@ export class ThemeSwitcherComponent {
 
   changeThemeSetting(setting: SettingApp) {
     this.renderer.setAttribute(document.body, 'data-theme', setting.theme);
+    this.settingService.changeTheme(setting);
   }
 
   ngOnDestroy() {

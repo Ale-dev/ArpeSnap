@@ -34,7 +34,7 @@ export class SettingsVideoComponent {
 
   addVideoControls(video: VideoItems) {
     this.settingsVideoForm = new FormGroup({
-      videoName: new FormControl(video.file.name.slice(0, 20), [
+      videoName: new FormControl(video.videoFile.name.slice(0, 20), [
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(20),

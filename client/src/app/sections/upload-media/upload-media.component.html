@@ -1,62 +1,115 @@
-<aside class="sidebar">
-	<nav class="sidebar-nav">
-		@for (item of sidebarItems; track $index) {
-		<button
-			[class]="item.class"
-			[ngClass]="{ is_active: item.isActive }"
-			[id]="item.id"
-			(click)="toggleActiveSideBarView(item, item.action)"
-		>
-			<svg-icon [src]="item.svg"></svg-icon>
-		</button>
-		}
-	</nav>
+<aside>
+  <nav class="aside-nav">
+    <div class="logo">
+      <svg
+        class="w-6 h-6 text-gray-800 dark:text-white"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke="white"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M14 6H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1Zm7 11-6-2V9l6-2v10Z"
+        />
+      </svg>
+    </div>
 
-	<div [ngClass]="shouldShowAsideBar ? 'aside-bar' : 'hidden'">
-		<div
-			[ngClass]="
-				currentSidebarView == actions.showUploadedVideos
-					? 'videos-container'
-					: 'hidden'
-			"
-		>
-			@for (item of videoCoverUrls; track $index) {
-			<div>
-				<button class="video-card" (click)="setSelectedVideo($index)">
-					<img [src]="item" srcset="" class="video-thumbnail" />
-				</button>
-			</div>
-			}
+    @for (item of asideItems; track $index) {
+    <button
+      [class]="item.class"
+      [ngClass]="{ is_active: item.isActive }"
+      [id]="item.id"
+      (click)="toggleActiveSideBarView(item, item.action)"
+    >
+      <svg-icon [src]="item.svg"></svg-icon>
+      <span>{{ item.title }}</span>
+    </button>
+    }
+  </nav>
 
-			<form class="file-upload">
-				<label for="fileInput">
-					<svg
-						aria-hidden="true"
-						xmlns="http://www.w3.org/2000/svg"
-						width="30"
-						height="30"
-						fill="currentColor"
-						viewBox="0 0 24 24"
-					>
-						<path
-							fill-rule="evenodd"
-							d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4.243a1 1 0 1 0-2 0V11H7.757a1 1 0 1 0 0 2H11v3.243a1 1 0 1 0 2 0V13h3.243a1 1 0 1 0 0-2H13V7.757Z"
-							clip-rule="evenodd"
-						/>
-					</svg>
-				</label>
-				<input
-					type="file"
-					id="fileInput"
-					class="hidden"
-					accept="video/mp4"
-					(change)="onUploadFile($event)"
-				/>
-			</form>
-		</div>
+  <div [ngClass]="shouldShowAsideBar ? 'aside-bar' : 'hidden'">
+    <div
+      fileDragDrop
+      class="dropzone"
+      (filesChangeEmiter)="onDragAndDropFileDrop($event)"
+      [ngClass]="
+        currentSidebarView == actions.showUploadedVideos
+          ? 'media-container'
+          : 'hidden'
+      "
+    >
+      <input id="dragAndDrop" type="file" class="hidden" />
+      <header>
+        <form class="search-container" action="">
+          <input type="search" placeholder="Search" name="" id="" />
+          <svg
+            class="w-6 h-6 text-gray-800 dark:text-white"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-width="2"
+              d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
+            />
+          </svg>
+        </form>
+        <h2>Videos</h2>
+      </header>
+      @for (item of cardVideos; track $index) {
+      <div>
+        <button class="video-card" (click)="setSelectedVideo($index)">
+          <img
+            [src]="item.coverVideo"
+            default="/icons/fallBackImage.svg"
+            class="img video-thumbnail"
+          />
+          <span>{{ item.name }}</span>
+        </button>
+      </div>
+      }
 
-		<div [ngClass]="currentSidebarView == actions.showSettings ? '' : 'hidden'">
-			<app-theme-switcher />
-		</div>
-	</div>
+      <form class="file-upload">
+        <label for="fileInput">
+          <h2>Upload a new file</h2>
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4.243a1 1 0 1 0-2 0V11H7.757a1 1 0 1 0 0 2H11v3.243a1 1 0 1 0 2 0V13h3.243a1 1 0 1 0 0-2H13V7.757Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </label>
+        <input
+          type="file"
+          id="fileInput"
+          class="hidden"
+          accept="video/mp4"
+          (change)="onUploadFile($event)"
+        />
+      </form>
+    </div>
+
+    <div [ngClass]="currentSidebarView == actions.showSettings ? '' : 'hidden'">
+      <app-theme-switcher />
+    </div>
+  </div>
 </aside>

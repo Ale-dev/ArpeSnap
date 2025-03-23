@@ -1,17 +1,20 @@
 main {
-	padding: 30px;
-	height: 100%;
+  width: 100%;
 }
 
 figure {
-	border: thin #c0c0c0 solid;
-	display: flex;
-	flex-flow: column;
-	padding: 5px;
-	height: 500px;
-	margin: auto;
+  border: thin #c0c0c0 solid;
+  display: flex;
+  flex-flow: column;
+  height: 500px;
+  border-width: 1px;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 video {
-	height: 100%;
+  height: 100%;
+  min-width: 100%;
+  object-fit: contain;
+  display: inline-block;
 }

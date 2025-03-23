@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { VideoItems } from '@app/shared/models/model';
 import { BehaviorSubject } from 'rxjs';
 
+type SortVideoBy = 'uploadedAt' | 'videoName' | 'videoDuration';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -24,4 +26,6 @@ export class VideoStorageService {
     this.videoList.push(videoItem);
     this.setVideo(videoItem);
   }
+
+  getVideoByCondition(sortBy: SortVideoBy) {}
 }

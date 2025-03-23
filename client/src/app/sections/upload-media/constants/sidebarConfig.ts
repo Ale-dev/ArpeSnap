@@ -1,23 +1,25 @@
-import { sidebarItem } from '../side-bar.model';
+import { AsideItem } from '../side-bar.model';
 
 export const SHOW_ELEMENT = {
   showSettings: 'show-setting',
   showUploadedVideos: 'show-uploaded-videos',
 };
 
-export const sidebarItems: sidebarItem[] = [
+export const asideLinks: AsideItem[] = [
   {
-    id: 'uploadedVideosItem',
-    class: 'video-list-item',
+    id: 'film-strip',
+    class: 'film-strip',
     action: 'show-uploaded-videos',
-    svg: '/icons/svg-file.svg',
+    svg: '/icons/file.svg',
+    title: 'Your media',
     isActive: false,
   },
   {
-    id: 'settingsItem',
-    class: 'settings-item',
+    id: 'cog',
+    class: 'cog',
     action: 'show-setting',
-    svg: '/icons/svg-cog.svg',
+    svg: '/icons/cog.svg',
+    title: 'Settings',
     isActive: false,
   },
 ];
